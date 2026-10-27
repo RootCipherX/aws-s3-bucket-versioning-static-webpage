@@ -113,32 +113,32 @@ To configure, test, inspect, and safely decommission an Amazon S3 storage contai
 Navigated to the AWS Management Console landing page (`aws.amazon.com/console`) and selected **Sign in**[cite: 144].
 <br>
 
-![AWS Console Landing](images/01-open-aws-website_2.png)
+![AWS Console Landing](images/01-open-aws-website.png)
 
 Selected the **Root user** radio button and entered the account root email address[cite: 145].
 <br>
 
-![Enter Root Email](images/02-login-as-root-user_2.jpg)
+![Enter Root Email](images/02-login-as-root-user.png)
 
 Supplied the root master password[cite: 146].
 <br>
 
-![Enter Root Password](images/03-enter-password_2.jpg)
+![Enter Root Password](images/03-enter-password.png)
 
 Encountered the mandatory **Additional verification required** challenge and entered the dynamic 6-digit TOTP code (`189148`) from Google Authenticator[cite: 147].
 <br>
 
-![Root MFA Verification](images/04-enter-mfa-code_2.jpg)
+![Root MFA Verification](images/04-enter-mfa-code.png)
 
 Completed the visual security CAPTCHA verification (`4t4hsh`) to authenticate the session[cite: 148].
 <br>
 
-![Security CAPTCHA](images/05-human-verification_2.jpg)
+![Security CAPTCHA](images/05-human-verification.png)
 
 Authenticated into **Console Home** in the `us-west-2` (Oregon) region[cite: 149].
 <br>
 
-![Console Home](images/06-logged-in-successfully_2.png)
+![Console Home](images/06-logged-in-successfully.png)
 
 Searched for **S3** in the global navigation bar and opened the Simple Storage Service console[cite: 150].
 <br>
@@ -154,21 +154,21 @@ Landed on the Amazon S3 overview page and clicked **Create bucket**[cite: 151].
 
 ### Phase 2: S3 Bucket Architecture & Access Control Setup
 
-Under **General configuration**, configured container parameters[cite: 152]:
-* **AWS Region:** `us-west-2` (US West - Oregon)[cite: 152]
-* **Bucket type:** `General purpose` (replicates data across a minimum of three Availability Zones)[cite: 152]
-* **Bucket namespace:** `Global namespace`[cite: 152]
-* **Bucket name:** Configured a globally unique bucket name (`pratiksha-27`)[cite: 152, 162]
+Under **General configuration**, configured container parameters:
+* **AWS Region:** `us-west-2` (US West - Oregon)
+* **Bucket type:** `General purpose` (replicates data across a minimum of three Availability Zones)
+* **Bucket namespace:** `Global namespace`
+* **Bucket name:** Configured a globally unique bucket name (`pratiksha-27`)
 <br>
 
 ![Bucket General Configuration](images/09-config-s3-bucket.png)
 
-Under **Object Ownership**, selected **ACLs disabled (recommended)** to ensure Bucket Owner Enforced security[cite: 143].
+Under **Object Ownership**, selected **ACLs disabled (recommended)** to ensure Bucket Owner Enforced security.
 <br>
 
 ![Object Ownership ACLs](images/10-select-ownership-acl.png)
 
-Under **Block Public Access settings for this bucket**, unchecked **Block *all* public access** and acknowledged the warning box to allow static website hosting and asset delivery[cite: 154].
+Under **Block Public Access settings for this bucket**, unchecked **Block *all* public access** and acknowledged the warning box to allow static website hosting and asset delivery.
 <br>
 
 ![Public Access Configuration](images/11-blocked-public-access.png)
@@ -177,17 +177,17 @@ Under **Block Public Access settings for this bucket**, unchecked **Block *all* 
 
 ### Phase 3: Object Versioning & Server-Side Encryption Configuration
 
-Under **Bucket Versioning**, selected **Enable** to preserve, retrieve, and restore every version of every object stored in the bucket[cite: 155].
+Under **Bucket Versioning**, selected **Enable** to preserve, retrieve, and restore every version of every object stored in the bucket.
 <br>
 
 ![Enable Bucket Versioning](images/12-enable-bucket-versioning.png)
 
-Under **Default encryption**, verified server-side encryption was configured with Amazon S3 managed keys (**SSE-S3**) and enabled **Bucket Key** to optimize encryption cost[cite: 156].
+Under **Default encryption**, verified server-side encryption was configured with Amazon S3 managed keys (**SSE-S3**) and enabled **Bucket Key** to optimize encryption cost.
 <br>
 
 ![Default Encryption SSE-S3](images/13-select-default-encryption.png)
 
-Under **Advanced settings**, verified **Object Lock** remained disabled and clicked **Create bucket**[cite: 157].
+Under **Advanced settings**, verified **Object Lock** remained disabled and clicked **Create bucket**.
 <br>
 
 ![Commit Bucket Creation](images/14-advance-settings-create-bucked.png)
