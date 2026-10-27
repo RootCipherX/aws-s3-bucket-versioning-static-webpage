@@ -30,7 +30,7 @@ The lab walks through uploading web and graphic assets, verifying in-browser ren
 
 ## Objective
 To configure, test, inspect, and safely decommission an Amazon S3 storage container, demonstrating:
-1. Multi-factor authenticated console access to storage control planes[cite: 147].
+1. Multi-factor authenticated console access to storage control planes.
 2. Bucket provisioning with default server-side encryption (SSE-S3)[cite: 152, 156].
 3. Enabling and validating Object Versioning across repeated file commits[cite: 155, 166, 167].
 4. Serving static web content and diagram assets over HTTP/HTTPS[cite: 153, 165, 168].
@@ -38,13 +38,13 @@ To configure, test, inspect, and safely decommission an Amazon S3 storage contai
 
 ## System Specifications & Storage Baseline
 * **Cloud Platform:** Amazon Web Services (AWS)[cite: 144, 150]
-* **Target Region:** `us-west-2` (US West - Oregon)[cite: 152]
-* **Bucket Type:** General purpose (multi-AZ redundant object storage)[cite: 152]
+* **Target Region:** `us-west-2` (US West - Oregon)
+* **Bucket Type:** General purpose (multi-AZ redundant object storage)
 * **Storage Class:** S3 Standard[cite: 162, 164]
 * **Object Ownership:** ACLs disabled (Bucket Owner Enforced)[cite: 143]
-* **Default Encryption:** Server-Side Encryption with Amazon S3 managed keys (SSE-S3)[cite: 156]
-* **Bucket Key:** Enabled (reduces KMS request volume)[cite: 156]
-* **Bucket Versioning:** Enabled[cite: 155]
+* **Default Encryption:** Server-Side Encryption with Amazon S3 managed keys (SSE-S3)
+* **Bucket Key:** Enabled (reduces KMS request volume)
+* **Bucket Versioning:** Enabled
 * **Staged Artifacts:**
   * `index.html` (Baseline webpage: 145.0 B -> Updated cyber attack infographic version: 1.9 KB)[cite: 164, 166, 167]
   * `Type-of-Computer-Network.jpg` (Network topology diagram: 435.3 KB)[cite: 162]
@@ -100,7 +100,7 @@ To configure, test, inspect, and safely decommission an Amazon S3 storage contai
                         |                                       |
                         v                                       v
          [ In-Browser Public Endpoint ]             [ Resource Decommissioning ]
-         - Renders Presigned Image[cite: 153]                 - Empty: Purge 5 Objects (518 KB)[cite: 170, 171]
+         - Renders Presigned Image                 - Empty: Purge 5 Objects (518 KB)[cite: 170, 171]
          - Renders Webpage & Infographic[cite: 165, 168]       - Delete: Final Bucket Termination[cite: 163, 173]
 ```
 
@@ -125,27 +125,27 @@ Supplied the root master password[cite: 146].
 
 ![Enter Root Password](images/03-enter-password.png)
 
-Encountered the mandatory **Additional verification required** challenge and entered the dynamic 6-digit TOTP code (`189148`) from Google Authenticator[cite: 147].
+Encountered the mandatory **Additional verification required** challenge and entered the dynamic 6-digit TOTP code (`189148`) from Google Authenticator.
 <br>
 
 ![Root MFA Verification](images/04-enter-mfa-code.png)
 
-Completed the visual security CAPTCHA verification (`4t4hsh`) to authenticate the session[cite: 148].
+Completed the visual security CAPTCHA verification (`4t4hsh`) to authenticate the session.
 <br>
 
 ![Security CAPTCHA](images/05-human-verification.png)
 
-Authenticated into **Console Home** in the `us-west-2` (Oregon) region[cite: 149].
+Authenticated into **Console Home** in the `us-west-2` (Oregon) region.
 <br>
 
 ![Console Home](images/06-logged-in-successfully.png)
 
-Searched for **S3** in the global navigation bar and opened the Simple Storage Service console[cite: 150].
+Searched for **S3** in the global navigation bar and opened the Simple Storage Service console.
 <br>
 
 ![Search S3 Service](images/07-search-for-s3.png)
 
-Landed on the Amazon S3 overview page and clicked **Create bucket**[cite: 151].
+Landed on the Amazon S3 overview page and clicked **Create bucket**.
 <br>
 
 ![S3 Landing Create Bucket](images/08-open-s3-dashboard-click-create-bucket.png)
@@ -221,7 +221,7 @@ Inspected the **Objects** table, confirming `Type-of-Computer-Network.jpg` was i
 
 ![Object Inventory](images/19-check-uploaded-file.png)
 
-Selected the object and clicked **Open**[cite: 162]. AWS generated a secure presigned URL (`.s3.us-west-2.amazonaws.com`), and the browser rendered the networking diagram (LAN, WAN, MAN, CAN, HAN)[cite: 153].
+Selected the object and clicked **Open**[cite: 162]. AWS generated a secure presigned URL (`.s3.us-west-2.amazonaws.com`), and the browser rendered the networking diagram (LAN, WAN, MAN, CAN, HAN).
 <br>
 
 ![Browser Rendering Image](images/20-verify-uploaded-file.jpg)
@@ -277,7 +277,7 @@ To satisfy the safety confirmation challenge, typed `"permanently delete"` into 
 
 ![Confirm Permanent Delete](images/26-verify-to-empty.png)
 
-Received confirmation: *"Successfully emptied bucket"*[cite: 171]. All 5 objects (totaling 518.0 KB across all versions) were permanently purged[cite: 171]. Clicked **Exit**[cite: 171].
+Received confirmation: *"Successfully emptied bucket"*. All 5 objects (totaling 518.0 KB across all versions) were permanently purged. Clicked **Exit**.
 <br>
 
 ![Bucket Empty Success](images/27-s3-bucket-empty-done.png)
@@ -303,7 +303,7 @@ Received the final confirmation banner: *"Successfully deleted bucket"*[cite: 17
 
 This deployment illustrates critical principles of enterprise cloud storage:
 
-* **Object Versioning Protection:** In production, versioning safeguards against ransomware, accidental mass deletions, and application deployment bugs[cite: 155]. Even if an object is "deleted" by an application, S3 simply places a reversible *delete marker* on top of the stack rather than destroying the data.
+* **Object Versioning Protection:** In production, versioning safeguards against ransomware, accidental mass deletions, and application deployment bugs. Even if an object is "deleted" by an application, S3 simply places a reversible *delete marker* on top of the stack rather than destroying the data.
 * **Deletion Safeguards & WORM Compliance:** AWS strictly requires buckets to be completely emptied—including all noncurrent version IDs and delete markers—before a bucket can be destroyed[cite: 170, 171, 172]. For compliance workloads requiring immutability (SEC Rule 17a-4), **S3 Object Lock** can be layered on top to prevent even root users from deleting data during a retention period[cite: 157].
 * **Cost & Lifecycle Hygiene:** While versioning preserves historic data, keeping old revisions indefinitely incurs ongoing storage costs[cite: 155, 171]. In production, teams pair versioning with **S3 Lifecycle Rules** to automatically transition noncurrent versions to lower-cost tiers (like S3 Glacier Flexible Retrieval) or expire them after a defined retention window (e.g., 90 days)[cite: 170].
 
