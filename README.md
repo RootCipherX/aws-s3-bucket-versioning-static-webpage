@@ -14,7 +14,7 @@
   - [Phase 5: Document Iteration & Multi-Version Object Tracking](#phase-5-document-iteration--multi-version-object-tracking)
   - [Phase 6: Multi-Stage Object Purge & Safe Bucket Deletion](#phase-6-multi-stage-object-purge--safe-bucket-deletion)
 - [Operational Relevance & Storage Governance](#operational-relevance--storage-governance)
-- [Ethical Guidelines & Disclaimer](#️ethical-guidelines--disclaimer)
+- [Ethical Guidelines & Disclaimer](#ethical-guidelines--disclaimer)
 
 ---
 
