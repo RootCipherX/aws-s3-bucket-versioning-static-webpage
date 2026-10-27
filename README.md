@@ -4,7 +4,7 @@
 - [Introduction to Cloud Object Storage](#introduction-to-cloud-object-storage)
 - [Project Overview](#project-overview)
 - [Objective](#objective)
-- [System Specifications & Storage Baseline](#️system-specifications--storage-baseline)
+- [System Specifications & Storage Baseline](#system-specifications--storage-baseline)
 - [Storage & Versioning Architecture (ASCII Flowchart)](#storage--versioning-architecture)
 - [Deployment Methodology](#deployment-methodology)
   - [Phase 1: MFA-Secured Root Authentication & S3 Dashboard Access](#phase-1-mfa-secured-root-authentication--s3-dashboard-access)
