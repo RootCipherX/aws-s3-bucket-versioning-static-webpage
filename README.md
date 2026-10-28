@@ -224,7 +224,7 @@ Inspected the **Objects** table, confirming `Type-of-Computer-Network.jpg` was i
 Selected the object and clicked **Open**. AWS generated a secure presigned URL (`.s3.us-west-2.amazonaws.com`), and the browser rendered the networking diagram (LAN, WAN, MAN, CAN, HAN).
 <br>
 
-![Browser Rendering Image](images/20-verify-uploaded-file.jpg)
+![Browser Rendering Image](images/20-verify-uploaded-file.png)
 
 Uploaded the baseline `index.html` document (145.0 B) into the bucket root.
 <br>
